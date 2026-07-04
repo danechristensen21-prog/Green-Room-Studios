@@ -311,13 +311,21 @@ footer img {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .8s ease, transform .8s ease;
+  transform: translateY(34px);
+  filter: blur(8px);
+  transition: opacity .9s ease, transform .9s ease, filter .9s ease;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
+}
+
+.card.reveal,
+.pillar.reveal,
+.work-card.reveal {
+  transition-delay: .08s;
 }
 
 @keyframes drift {
