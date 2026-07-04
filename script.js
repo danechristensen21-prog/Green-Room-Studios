@@ -9,18 +9,12 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.15
+    threshold: 0.16,
+    rootMargin: "0px 0px -80px 0px"
   }
 );
 
-revealElements.forEach(element => observer.observe(element));
-
-const header = document.querySelector(".site-header");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
+revealElements.forEach((element, index) => {
+  element.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
+  observer.observe(element);
 });
